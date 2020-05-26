@@ -85,5 +85,124 @@
 // console.log(`The grade obtained is ${grade}`);
 
 //arrow function
-const sum = (x, y) => x + y;
-console.log(sum(56, 23));
+
+// const sum = (x, y) => x + y;
+// console.log(sum(56, 23));
+
+//this keyword in the context of an object
+
+// const america = {
+// name: 'The United States of America',
+// yearFounded: 1776,
+// describe() {
+// console.log(`${this.name} was founded in ${this.yearFounded}.`)
+// },
+// }
+// america.describe()
+
+//this keyword in the context of inner object
+
+// const america1 = {
+// name: 'The United States of America',
+// yearFounded: 1776,
+// details: {
+// symbol: 'eagle',
+// currency: 'USD',
+// printDetails() {
+// console.log(`The symbol is the ${this.symbol} and the currency is
+// ${this.currency}.`)
+// },
+// },
+// }
+
+// america1.details.printDetails();
+
+//this keyword in function Constructor context
+
+// function Country(name, yearFounded) {
+//   this.name = name;
+//   this.yearFounded = yearFounded;
+//   this.describe = function () {
+//     console.log(`${this.name} was founded in ${this.yearFounded}`);
+//   }
+// }
+
+// const USA = new Country("United States of America", 1776);
+// USA.describe();
+
+//this keyword in event handlers
+
+// const button = document.createElement('button');
+// button.textContent = "Click Me";
+// document.body.append(button);
+
+// // button.addEventListener("click", function () {
+// //   console.log(this);
+// // });
+
+// class Display {
+//   constructor() {
+//     this.buttonText = "Don't click me";
+//     button.addEventListener("click", (event) => {
+//       event.target.textContent = this.buttonText;
+//       console.log(this);
+//     })
+//   }
+// }
+
+// new Display();
+
+
+//call and apply menthods
+
+// var book = {
+//   title: "Brave New World",
+//   author: "Aldous Huxley"
+// }
+
+// function summary() {
+//   console.log(`${this.title} was written by ${this.author}`);
+// }
+
+// // summary.call(book);
+// // summary.apply(book);
+
+// function printThis() {
+//   console.log(this);
+// }
+
+// // printThis.call(book);
+
+// function longerSummary(genre, year) {
+//   console.log(`${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}`);
+// }
+
+// longerSummary.call(book, "dystopian", 1932);
+// longerSummary.apply(book, "dystopian", 1932);
+
+// var book2 = {
+//   title: "Oliver Twist",
+//   author: "Charles Dickens"
+// }
+
+// bind method 
+
+// var braveNewWorldSummary = summary.bind(book);
+// braveNewWorldSummary();
+// braveNewWorldSummary.bind(book2);
+// braveNewWorldSummary();
+
+//arrow functions this ;
+
+// var whoAmI = {
+//   name: "Susnata Dube",
+//   regularFunc: function () {
+//     console.log(this.name);
+//   },
+//   arrowFunc: () => {
+//     console.log(this.name);
+//   }
+// }
+
+// whoAmI.regularFunc();
+// whoAmI.arrowFunc();
