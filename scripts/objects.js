@@ -91,11 +91,15 @@ const details = {
 
 // console.log(details);
 
-Object.seal(name);
-name.lastName = "Pan";
-name.email = "philip.fry@abc.com";
-delete name.firstName;
-console.log(name);
+// Object.seal(name);
+// name.lastName = "Pan";
+// name.email = "philip.fry@abc.com";
+// delete name.firstName;
+// console.log(name);
 
-const namePrototype = Object.getPrototypeOf(name);
-console.log(namePrototype);
+// const namePrototype = Object.getPrototypeOf(name);
+// console.log(namePrototype);
+
+
+var arr = [];
+console.log(arr.__proto__);
