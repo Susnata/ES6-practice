@@ -22,8 +22,36 @@
 
 // Test the keyCode, key, and code properties
 
-document.addEventListener('keydown', event => {
-  console.log('key: ' + event.keyCode);
-  console.log('key: ' + event.key);
-  console.log('code: ' + event.code);
-});
+// document.addEventListener('keydown', event => {
+//   console.log('key: ' + event.keyCode);
+//   console.log('key: ' + event.key);
+//   console.log('code: ' + event.code);
+// });
+
+//keyboard events and event object properties
+
+document.body.addEventListener("keydown", (e) => {
+  const p = document.querySelector("p");
+  const a = "KeyA", s = "KeyS", d = "KeyD", w = "KeyW";
+  switch (e.code) {
+    case a:
+      p.textContent = "Left";
+      break;
+    case s:
+      p.textContent = "Down";
+      break;
+    case d:
+      p.textContent = "Right";
+      break;
+    case w:
+      p.textContent = "Up";
+      break;
+    default:
+      p.textContent = "Not a valid key";
+  }
+})
+
+const section = document.querySelector("section");
+section.addEventListener("click", e => {
+  console.log(e.target);
+})
