@@ -11,15 +11,15 @@
 // var str2 = "Javascript is a good programming language. Java is excellent too!";
 // console.log(str2.replace(/java/gi, "Lava"));
 
-let seaCreatures = [
-  "whale",
-  "octopus",
-  "squid",
-  "shark",
-  "seahorse",
-  "starfish",
-  "cuttlefish"
-];
+// let seaCreatures = [
+//   "whale",
+//   "octopus",
+//   "squid",
+//   "shark",
+//   "seahorse",
+//   "starfish",
+//   "cuttlefish"
+// ];
 // console.log(seaCreatures.indexOf("squid"));
 // console.log(seaCreatures.indexOf("coral"));
 // seaCreatures.unshift("coral");
@@ -61,13 +61,30 @@ let seaCreatures = [
 // });
 // sum;
 
-const isCephalopod = (cephalopod) => {
-  return ["cuttlefish", "octopus"].includes(cephalopod);
+// const isCephalopod = (cephalopod) => {
+//   return ["cuttlefish", "octopus"].includes(cephalopod);
+// }
+
+// console.log(seaCreatures.find(isCephalopod));
+// console.log(seaCreatures.findIndex(isCephalopod));
+
+// Create arrays of monovalves and bivalves
+let monovalves = ["abalone", "conch"];
+let bivalves = ["oyster", "mussel", "clam"];
+let crustaceans = ["king crab", "dungeness crab", "crayfish", "lobster"];
+
+let shellfish = monovalves.concat(bivalves, crustaceans);
+console.log(shellfish.reverse());
+console.log(shellfish.fill("shrimp", 2, 4));
+// let crabs = shellfish.slice(5, 7);
+// crabs.splice(1, 0, "hermit crab");
+// console.log(crabs.join(", "));
+
+let numList = [43, 12, 4, 7, 34, 6];
+
+const sortNum = (a, b) => {
+  return (a - b);
 }
-
-console.log(seaCreatures.find(isCephalopod));
-console.log(seaCreatures.findIndex(isCephalopod));
-
-
+console.log(numList.sort(sortNum));
 
 
