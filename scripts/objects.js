@@ -100,6 +100,45 @@ const details = {
 // const namePrototype = Object.getPrototypeOf(name);
 // console.log(namePrototype);
 
+// var arr = [];
+// console.log(arr.__proto__);
+// console.log(Array.prototype.isPrototypeOf(arr));
+// console.log(Object.prototype.isPrototypeOf(arr.__proto__));
+// console.log(arr instanceof Array);
 
-var arr = [];
-console.log(arr.__proto__);
+function Hero(name, level) {
+  this.name = name;
+  this.level = level;
+}
+Hero.prototype.greet = function () {
+  console.log(`${this.name} says hello!`);
+};
+
+// var hero1 = new Hero("Spidey", 2);
+// console.log(Object.getPrototypeOf(hero1));
+
+function Warrior(name, level, weapon) {
+  Hero.call(this, name, level);
+  this.weapon = weapon;
+}
+
+function Healer(name, level, spell) {
+  Hero.call(this, name, level);
+  this.spell = spell;
+}
+
+Warrior.prototype.attack = function () {
+  console.log(`${this.name} attacks with ${this.weapon}`);
+};
+
+Healer.prototype.heal = function () {
+  console.log(`${this.name} heals with ${this.spell}`);
+};
+
+Warrior.prototype = Object.create(Hero.prototype);
+Healer.prototype = Object.create(Hero.prototype);
+
+const hero1 = new Warrior('Bjorn', 1, "axe");
+const hero2 = new Healer('Kanin', 1, "cure");
+
+hero1.greet();
