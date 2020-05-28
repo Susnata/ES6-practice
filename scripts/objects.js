@@ -67,16 +67,16 @@
 // })
 
 // Initialize an object
-const name = {
-  firstName: 'Philip',
-  lastName: 'Fry'
-};
-// Initialize another object
-const details = {
-  job: 'Delivery Boy',
-  employer: 'Planet Express'
-};
-
+// const name = {
+//   firstName: 'Philip',
+//   lastName: 'Fry'
+// };
+// // Initialize another object
+// const details = {
+//   job: 'Delivery Boy',
+//   employer: 'Planet Express'
+// };
+// // 
 // const character = Object.assign(name, details); //Copeies the properties of name and details objects to character object.
 // console.log(character);
 
@@ -106,39 +106,134 @@ const details = {
 // console.log(Object.prototype.isPrototypeOf(arr.__proto__));
 // console.log(arr instanceof Array);
 
-function Hero(name, level) {
-  this.name = name;
-  this.level = level;
-}
-Hero.prototype.greet = function () {
-  console.log(`${this.name} says hello!`);
-};
+// function Hero(name, level) {
+//   this.name = name;
+//   this.level = level;
+// }
+// Hero.prototype.greet = function () {
+//   console.log(`${this.name} says hello!`);
+// };
 
 // var hero1 = new Hero("Spidey", 2);
 // console.log(Object.getPrototypeOf(hero1));
 
-function Warrior(name, level, weapon) {
-  Hero.call(this, name, level);
-  this.weapon = weapon;
-}
+// function Warrior(name, level, weapon) {
+//   Hero.call(this, name, level);
+//   this.weapon = weapon;
+// }
 
-function Healer(name, level, spell) {
-  Hero.call(this, name, level);
-  this.spell = spell;
-}
+// function Healer(name, level, spell) {
+//   Hero.call(this, name, level);
+//   this.spell = spell;
+// }
 
-Warrior.prototype.attack = function () {
-  console.log(`${this.name} attacks with ${this.weapon}`);
-};
+// Warrior.prototype.attack = function () {
+//   console.log(`${this.name} attacks with ${this.weapon}`);
+// };
 
-Healer.prototype.heal = function () {
-  console.log(`${this.name} heals with ${this.spell}`);
-};
+// Healer.prototype.heal = function () {
+//   console.log(`${this.name} heals with ${this.spell}`);
+// };
 
-Warrior.prototype = Object.create(Hero.prototype);
-Healer.prototype = Object.create(Hero.prototype);
+// Warrior.prototype = Object.create(Hero.prototype);
+// Healer.prototype = Object.create(Hero.prototype);
 
-const hero1 = new Warrior('Bjorn', 1, "axe");
-const hero2 = new Healer('Kanin', 1, "cure");
+// const hero1 = new Warrior('Bjorn', 1, "axe");
+// const hero2 = new Healer('Kanin', 1, "cure");
 
-hero1.greet();
+// hero1.greet();
+
+//Object Destructuring
+// const notes = {
+//   title: "My first note",
+//   // date: "03/06/2020",
+//   author: {
+//     firstName: "Susnata",
+//     lastName: "Dube"
+//   },
+//   tags: ["personal", "writing", "investigation"]
+// }
+
+// const {
+//   title,
+//   date = new Date(),
+//   author: { firstName },
+//   tags: [tag1, tag2]
+// } = notes;
+// console.log(`${title} was written on ${date} by ${firstName} under tha category ${tag1} and ${tag2}`);
+// const { title, date, author, author: { firstName: fName, lastName: lName } } = notes;
+// console.log(title);
+// console.log(date);
+// console.log(author);
+// console.log(fName);
+// console.log(lName);
+
+//Array Destructuring
+
+// Object.entries(notes).forEach(([key, value]) => {
+//   console.log(`${key} : ${value}`);
+// })
+
+// for (let [key, value] of Object.entries(notes)) {
+//   console.log(`${key} : - ${value}`);
+// }
+
+// const date = [1986, 06, 03];
+// const [year, month, day] = date;
+// console.log(day, month, year);
+
+// //Spread with Arrays
+
+// const tools = ['hammer', 'screwdriver']
+// const otherTools = ['wrench', 'saw']
+
+// const allTools = [...tools, ...otherTools, "drilling machine", "plus"];
+// console.log(allTools);
+
+// const set = new Set();
+// set.add("Dolphin");
+// set.add("Whale");
+// set.add("Shark");
+// console.log(set);
+// const seaCreatures = [...set];
+// console.log(seaCreatures);
+
+// const user = {
+//   id: 3,
+//   name: 'Ron',
+//   organization: {
+//     name: 'Parks & Recreation',
+//     city: 'Pawnee'
+//   }
+// }
+
+// const updatedUser = {
+//   ...user,
+//   isLoggedIn: true,
+//   organization: {
+//     ...user.organization,
+//     position: "Director"
+//   }
+// }
+// console.log(updatedUser);
+
+//Rest parameter
+
+// function printNum(...arg) {
+//   arg.forEach(el => {
+//     console.log(el);
+//   })
+// }
+// printNum(1, 2, 3, 4, 5, 6, 7, 8);
+
+// function restTest(one, two, ...args) {
+//   console.log(one);
+//   console.log(two);
+//   console.log(args);
+// }
+
+// restTest(1, 2, 3, 4, 5);
+
+const { isLoggedIn, ...rest } = { id: 1, name: 'Ben', isLoggedIn: true }
+console.log(isLoggedIn);
+console.log(rest);
